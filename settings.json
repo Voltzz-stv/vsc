@@ -300,7 +300,7 @@
     "file://D:\\vsc\\ninja.js"
   ],
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\sthevar\\scoop\\apps\\neovim\\current\\bin\\nvim.exe",
-  "vscode-neovim.neovimInitVimPaths.win32": "D:\\vsc\\init.lua",
+  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\sthevar\\AppData\\Roaming\\Code\\User\\asur\\init.lua",
   "win-ca.inject": "append",
   "window.commandCenter": false,
   "window.menuBarVisibility": "compact",
