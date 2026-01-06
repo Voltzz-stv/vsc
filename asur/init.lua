@@ -159,31 +159,13 @@ require('lazy').setup({
     },
 })
 
--- vim.o.foldmethod = "expr"
--- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.opt.foldcolumn = "1"
--- vim.opt.foldenable = true
--- vim.opt.foldlevel = 99
--- vim.opt.foldlevelstart = 99
-
 -- test with ufo fold
 -- vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 -- vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
--- vim.keymap.set('n', 'n', 'nzzzv')
--- vim.keymap.set('n', 'N', 'Nzzzv')
 local opts = { noremap = true, silent = true }
 
--- vim.cmd('nmap n nzz')
--- vim.cmd('nmap N Nzz')
-
--- vim.cmd([[nnoremap n :normal! nzz<CR>]])
--- vim.cmd([[nnoremap N :normal! Nzz<CR>]])
-
 -- vim.cmd('nmap <C-d> <C-d>zz')
--- This is not working
--- vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
--- vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 
 -- vim.keymap.set('n', '<C-d>', function()
 --     vim.cmd('normal! <C-d>zz')
@@ -283,21 +265,6 @@ vim.keymap.set({ 'v' }, 'gk', function()
     return '<Ignore>'
 end, { expr = true, noremap = true })
 
--- Map movement to skip over folded lines
--- vim.keymap.set('v', 'j', 'gj', opts)
--- vim.keymap.set('v', 'k', 'gk', opts)
--- ----------------
--- Normal mode
--- vim.cmd('nnoremap j gj')
--- vim.cmd('nnoremap k gk')
-
--- -- Visual mode
--- vim.cmd('xnoremap j gj')
--- vim.cmd('xnoremap k gk')
-
--- -- Operator-pending mode (for things like `d`, `c`, `y`, etc.)
--- vim.cmd('onoremap j gj')
--- vim.cmd('onoremap k gk')
 
 if vim.g.vscode then
     local opts = { noremap = true, silent = true }
@@ -306,39 +273,44 @@ if vim.g.vscode then
         { 'n', 'w',          'cursorWordPartRight' },
         { 'n', 'b',          'cursorWordPartLeft' },
         { 'v', 'w',          'cursorWordPartRightSelect' },
-        { 'v', 'b',          'cursorWordPartLeftSelect' }, -- Code Navigation
+        { 'v', 'b',          'cursorWordPartLeftSelect' },
+
+        -- Code Navigation
         { 'n', '<leader>gy', 'editor.action.goToTypeDefinition' },
         { 'n', '<leader>gi', 'editor.action.goToImplementation' },
         { 'n', '<leader>gr', 'editor.action.goToReferences' },
         { 'n', '<leader>gs', 'workbench.action.gotoSymbol' },
-        { 'n', '<leader>gl', 'workbench.action.gotoLine' }, -- { 'n', '<leader>nf', 'workbench.action.navigateForward' },
+        { 'n', '<leader>gl', 'workbench.action.gotoLine' },
+        -- { 'n', '<leader>nf', 'workbench.action.navigateForward' },
         -- { 'n', '<leader>nb', 'workbench.action.navigateBack' },
         -- { 'n', '<leader>je', 'workbench.action.navigateToLastEditLocation' },
+
         -- Quick Search & Peek Actions
         -- { 'n', '<leader>ss', 'workbench.action.showAllSymbols' },
         -- { 'n', '<leader>sa', 'workbench.action.showCommands' },
         -- { 'n', '<leader>sf', 'workbench.action.quickOpen' },
         { 'n', '<leader>vd', 'editor.action.peekDefinition' },
         { 'n', '<leader>vi', 'editor.action.peekImplementation' },
-        { 'n', '<leader>vt', 'editor.action.peekTypeDefinition' }, -- { 'n', '<leader>vh', 'editor.action.showHover' },
+        { 'n', '<leader>vt', 'editor.action.peekTypeDefinition' },
+        -- { 'n', '<leader>vh', 'editor.action.showHover' },
         -- { 'n', '<leader>fr', 'references-view.findReferences' },
         -- { 'n', '<leader>sr', 'editor.action.referenceSearch.trigger' },
+
         -- Line Editing & Code Maintenance
         -- { 'n', '<leader>lu', 'editor.action.copyLinesUpAction' },
         -- { 'n', '<leader>ld', 'editor.action.copyLinesDownAction' },
-        -- { 'n', '<leader>mu', 'editor.action.moveLinesUpAction' },
-        -- { 'n', '<leader>md', 'editor.action.moveLinesDownAction' },
         -- { 'n', '<leader>fm', 'editor.action.formatDocument' },
-        -- { 'n', '<leader>oi', 'editor.action.organizeImports' },
+        { 'n', '<leader>oi', 'editor.action.organizeImports' },
         -- { 'n', '<leader>en', 'editor.action.marker.next' },
         -- { 'n', '<leader>ep', 'editor.action.marker.prev' },
+
         -- File & Workspace Management
         { 'n', '<leader>cp', 'copyFilePath' },
         { 'n', '<leader>cr', 'copyRelativeFilePath' },
         { 'n', '<leader>rl', 'workbench.action.openRecent' },
         -- { 'n', '<leader>nf', 'workbench.action.files.newUntitledFile' },
-        -- { 'n', '<leader>cf', 'workbench.action.closeActiveEditor' },
-        -- { 'n', '<leader>fa', 'workbench.action.closeAllEditors' },
+        { 'n', '<leader>cf', 'workbench.action.closeActiveEditor' },
+        { 'n', '<leader>fa', 'workbench.action.closeAllEditors' },
         -- { 'n', '<leader>of', 'workbench.action.files.openFile' },
         { 'n', '<leader>rw', 'workbench.action.reloadWindow' },
         { 'n', '<leader>os', 'workbench.action.openSettingsJson' },
@@ -348,12 +320,17 @@ if vim.g.vscode then
         { 'n', '<leader>cb', 'notebook.cell.insertCodeCellBelow' },
         { 'n', '<leader>ca', 'notebook.cell.insertCodeCellAbove' },
         { 'n', '<leader>co', 'notebook.cell.clearOutputs' },
+
+        -- Fold
         { 'n', 'zO',         'editor.unfoldRecursively' },
         { 'n', 'za',         'editor.toggleFold' }, { 'n', 'zR', 'editor.unfoldAll' },
         { 'n',          'zM',         'editor.foldAll' },
         { 'n',          '<leader>nr', 'console-ninja.reloadBrowserPage' },
         { { 'n', 'v' }, '<leader>pa', 'workbench.action.chat.openask' },
-        { 'n',          '<leader>ps', 'editor.action.inlineSuggest.trigger' }
+        { 'n',          '<leader>ps', 'editor.action.inlineSuggest.trigger' },
+
+        { 'n',          '<leader>oc', 'git.openChange' },
+        { 'n',          '<leader>sc', 'git.stage' }
     }
 
     for _, mapping in ipairs(mappings) do

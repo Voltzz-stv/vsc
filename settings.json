@@ -436,5 +436,10 @@
       "cva\\((?:`|\"|')([^`\"']*)(?:`|\"|')\\)",
       1
     ],
-  ]
+  ],
+  "terminal.external.windowsExec": "C:\\Users\\sthevar\\scoop\\apps\\nu\\0.109.1\\nu.exe",
+  "security.allowedUNCHosts": [
+    "wsl.localhost"
+  ],
+  "workbench.editor.empty.hint": "hidden"
 }
