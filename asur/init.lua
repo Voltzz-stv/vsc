@@ -330,7 +330,9 @@ if vim.g.vscode then
         { 'n',          '<leader>ps', 'editor.action.inlineSuggest.trigger' },
 
         { 'n',          '<leader>oc', 'git.openChange' },
-        { 'n',          '<leader>sc', 'git.stage' }
+        { 'n',          '<leader>sc', 'git.stage' },
+        { { 'n', 'v' }, '<leader>km', 'workbench.action.toggleMaximizeEditorGroup' },
+        { 'n',          '<leader>ol', 'editor.action.openLink' }
     }
 
     for _, mapping in ipairs(mappings) do

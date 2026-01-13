@@ -8,6 +8,14 @@
 			},
 			"gallery": "https://api.mcp.github.com",
 			"version": "0.24.1"
+		},
+		"console-ninja": {
+			"command": "powershell.exe",
+			"args": [
+				"node",
+				"$Env:USERPROFILE/.console-ninja/mcp/"
+			],
+			"type": "stdio"
 		}
 	},
 	"inputs": [

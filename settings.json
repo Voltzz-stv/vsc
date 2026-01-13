@@ -441,5 +441,8 @@
   "security.allowedUNCHosts": [
     "wsl.localhost"
   ],
-  "workbench.editor.empty.hint": "hidden"
+  "workbench.editor.empty.hint": "hidden",
+  "[toml]": {
+    "editor.defaultFormatter": "Shellomo.enhanced-toml"
+  }
 }

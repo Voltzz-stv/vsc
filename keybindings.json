@@ -63,5 +63,14 @@
     {
         "key": "ctrl+alt+n",
         "command": "-extension.advancedNewFile"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "-workbench.view.scm",
+        "when": "workbench.scm.active"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.scm.focus"
     }
 ]
