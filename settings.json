@@ -142,7 +142,6 @@
   "editor.fontFamily": "'Cascadia Mono','Cascadia Code','Comic Mono', Fira Code",
   "editor.fontLigatures": "'calt', 'liga', 'clig', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'",
   "editor.fontSize": 15,
-  "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.guides.indentation": true,
   "editor.inlayHints.enabled": "off",
@@ -207,7 +206,6 @@
     "asvetliakov.vscode-neovim": 1
   },
   "extensions.ignoreRecommendations": true,
-  "files.autoSave": "onFocusChange",
   "files.autoSaveDelay": 20000,
   "files.autoSaveWhenNoErrors": true,
   "files.exclude": {
@@ -234,7 +232,7 @@
     "html": "html",
     "javascript": "javascript"
   },
-  "terminal.explorerKind": "both",
+  "terminal.explorerKind": "external",
   "terminal.integrated.fontFamily": "'MesloLGL Nerd Font','Cascadia Code',\"Cascadia Mono\", monospace",
   "terminal.integrated.fontLigatures.enabled": true,
   "terminal.integrated.fontSize": 13,
@@ -360,6 +358,34 @@
         }
       ]
     },
+    "multiCommand.nextAndAlign": {
+      "command": "multiCommand.nextAndAlign",
+      "interval": 5,
+      "sequence": [
+        {
+          "command": "vscode-neovim.send",
+          "args": "n"
+        },
+        {
+          "command": "vscode-neovim.send",
+          "args": "zz"
+        }
+      ]
+    },
+    "multiCommand.prevAndAlign": {
+      "command": "multiCommand.prevAndAlign",
+      "interval": 5,
+      "sequence": [
+        {
+          "command": "vscode-neovim.send",
+          "args": "N"
+        },
+        {
+          "command": "vscode-neovim.send",
+          "args": "zz"
+        }
+      ]
+    }
   },
   "advancedNewFile.exclude": {
     "/node_modules": true,
@@ -441,8 +467,9 @@
   "security.allowedUNCHosts": [
     "wsl.localhost"
   ],
-  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.empty.hint": "text",
   "[toml]": {
     "editor.defaultFormatter": "Shellomo.enhanced-toml"
-  }
+  },
+  "eslint.run": "onSave"
 }

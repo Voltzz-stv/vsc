@@ -17,6 +17,16 @@
         }
     },
     {
+        "key": "n",
+        "command": "multiCommand.nextAndAlign",
+        "when": "neovim.mode != 'insert' && editorTextFocus"
+    },
+    {
+        "key": "shift+n",
+        "command": "multiCommand.prevAndAlign",
+        "when": "neovim.mode != 'insert' && editorTextFocus"
+    },
+    {
         "key": "ctrl+d",
         "command": "extension.multiCommand.execute",
         "args": {
